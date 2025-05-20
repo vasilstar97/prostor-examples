@@ -1,2 +1,1 @@
-geopandas
-ipykernel
+git+https://github.com/aimclub/blocksnet@develop#egg=blocksnet[full,ipynb]
