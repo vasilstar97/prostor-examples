@@ -1,1 +1,1 @@
-from .utils import *
+from .fetchers import *

@@ -16,8 +16,8 @@ def _get_territories(geometry : bool, **kwargs):
         return _get_territories_with_geometry(**kwargs)
     return _get_territories_without_geometry(**kwargs)
 
-def get_countries():
-    return _get_territories(geometry=False)
+def get_countries(geometry : bool = False):
+    return _get_territories(geometry=geometry)
 
 def get_regions(country_id : int | None = None, geometry : bool = False):
     if country_id is not None:
