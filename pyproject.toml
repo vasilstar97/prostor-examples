@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=64.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prostor"
+version = "0.0.1"
+authors = [
+    { name = "Vasilii Starikov", email = "vasilstar97@gmail.com" }, # TODO add authors
+]
+description = "http://github.com/vasilstar97/prostor-exampless"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENCE" }
+
+dependencies = [
+    "blocksnet @ git+https://github.com/aimclub/blocksnet@develop#egg=blocksnet[full,ipynb]",
+    "ipykernel",
+    "ipywidgets",
+    "jupyter",
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+]
+
+[tool.setuptools.packages.find]
+include = ["prostor*"]
+
+[project.urls]
+"Repository" = "https://github.com/vasilstar97/prostor-examples"
+"Bug Tracker" = "https://github.com/vasilstar97/prostor-examples/issues"
+
+
+[tool.black]
+line-length = 120
+target-version = ['py310']
+
+[tool.pylint.format]
+max-line-length = 120
+expected-line-ending-format = "LF"
+
+[tool.pylint.main]
+extension-pkg-allow-list = ["pydantic"]
+
+[tool.pycodestyle]
+max-line-length = 120
+
+
+[tool.isort]
+lines_after_imports = 2
+multi_line_output = 3
+line_length = 120
+include_trailing_comma = true

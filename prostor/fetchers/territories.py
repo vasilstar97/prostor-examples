@@ -1,5 +1,7 @@
 import pandas as pd
 import geopandas as gpd
+import shapely
+import json
 from prostor.api import api
 
 def _get_territories_with_geometry(**kwargs):
@@ -28,3 +30,8 @@ def get_regions(country_id : int | None = None, geometry : bool = False):
 
 def get_territories(region_id : int, geometry : bool = False):
     return _get_territories(geometry=geometry, parent_id=region_id, get_all_levels=True)
+
+def get_territory_geometry(territory_id : int):
+    res = api.get(f'/api/v1/territory/{territory_id}')
+    geometry_json = json.dumps(res['geometry'])
+    return shapely.from_geojson(geometry_json)
