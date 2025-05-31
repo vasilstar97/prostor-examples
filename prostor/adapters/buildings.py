@@ -1,7 +1,7 @@
 import geopandas as gpd
 import pandas as pd
 
-RULES = {
+BUILDINGS_RULES = {
     'number_of_floors': [
         ['floors'],
         ['properties', 'storeys_count'],
@@ -50,7 +50,7 @@ def _adapt(data : dict, rules : list):
 def adapt_buildings(buildings_gdf : gpd.GeoDataFrame, living_pot_id : int = 4):
     gdf = buildings_gdf[['geometry']].copy()
     gdf['is_living'] = buildings_gdf['physical_object_type'].apply(lambda pot : pot['physical_object_type_id'] == 4)
-    for column, rules in RULES.items():
+    for column, rules in BUILDINGS_RULES.items():
         series = buildings_gdf['building'].apply(lambda b : _adapt(b, rules))
         gdf[column] = pd.to_numeric(series, errors='coerce')
     return gdf
