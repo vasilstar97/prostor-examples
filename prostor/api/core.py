@@ -26,4 +26,4 @@ class API:
     def post(self, endpoint, *args, **kwargs) -> requests.Response:
         return requests.post(self.url + endpoint, *args, **kwargs)
 
-api = API('http://10.32.1.107:5300')
+api = API('https://urban-api-107.idulab.ru')
