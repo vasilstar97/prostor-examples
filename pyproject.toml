@@ -13,12 +13,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { file = "LICENCE" }
 
-dependencies = [
-    "blocksnet @ git+https://github.com/aimclub/blocksnet@develop#egg=blocksnet[full,ipynb]",
-    "ipykernel",
-    "ipywidgets",
-    "jupyter",
-]
+dependencies = ["blocksnet==1.0.0.dev0", "ipykernel", "ipywidgets", "jupyter"]
 
 classifiers = [
     "Programming Language :: Python :: 3",
