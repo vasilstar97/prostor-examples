@@ -13,7 +13,12 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { file = "LICENCE" }
 
-dependencies = ["blocksnet==1.0.0.dev0", "ipykernel", "ipywidgets", "jupyter"]
+dependencies = [
+    "blocksnet[full,ml]==1.0.0.dev0",
+    "ipykernel",
+    "ipywidgets",
+    "jupyter",
+]
 
 classifiers = [
     "Programming Language :: Python :: 3",
