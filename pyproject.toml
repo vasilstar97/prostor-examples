@@ -14,7 +14,7 @@ requires-python = ">=3.10"
 license = { file = "LICENCE" }
 
 dependencies = [
-    "blocksnet[full,ml]==1.0.0.dev0",
+    "blocksnet[full,ipynb]==1.0.0.dev0", # ipynb только для юпитер-ноутбуков, можно его с собой не тащить в АПИ
     "ipykernel",
     "ipywidgets",
     "jupyter",
