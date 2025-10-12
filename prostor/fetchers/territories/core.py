@@ -36,9 +36,16 @@ def get_territory_geometry(territory_id : int):
     geometry_json = json.dumps(res['geometry'])
     return shapely.from_geojson(geometry_json)
 
+def get_territory_normatives(territory_id : int):
+    res = api.get(f'/api/v1/territory/{territory_id}/normatives', params={'last_only': True})
+    df = pd.DataFrame(res)
+    df['service_type_id'] = df['service_type'].apply(lambda st : st['id'])
+    return df.set_index('service_type_id', drop=True)
+
 __all__ = [
     'get_countries',
     'get_regions',
     'get_territories',
-    'get_territory_geometry'
+    'get_territory_geometry',
+    'get_territory_normatives'
 ]

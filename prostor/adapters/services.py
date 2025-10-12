@@ -8,8 +8,8 @@ def _adapt_service_type(data : dict, service_types : pd.DataFrame) -> int:
         return service_type_name
     return None
 
-def adapt_services(buildings_gdf : gpd.GeoDataFrame, service_types : pd.DataFrame) -> dict[int, gpd.GeoDataFrame]:
-    gdf = buildings_gdf[['geometry', 'capacity']].copy()
-    gdf['service_type'] = buildings_gdf['service_type'].apply(lambda st : _adapt_service_type(st, service_types))
+def adapt_services(services_gdf : gpd.GeoDataFrame, service_types : pd.DataFrame) -> dict[int, gpd.GeoDataFrame]:
+    gdf = services_gdf[['geometry', 'capacity']].copy()
+    gdf['service_type'] = services_gdf['service_type'].apply(lambda st : _adapt_service_type(st, service_types))
     gdf = gdf[~gdf['service_type'].isna()].copy()
     return {st:gdf[gdf['service_type']==st].drop(columns=['service_type']) for st in sorted(gdf['service_type'].unique())}

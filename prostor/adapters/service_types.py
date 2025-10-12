@@ -92,7 +92,7 @@ def adapt_service_types(service_types_df : pd.DataFrame):
     df = service_types_df[['infrastructure_type']].copy()
     df['infrastructure_weight'] = service_types_df['properties'].apply(_adapt_infrastructure_weight)
     df['name'] = df.apply(lambda s : _adapt_name(s.name), axis=1)
-    df = df[~df['name'].isna()].copy()
+    # df = df[~df['name'].isna()].copy()
     
     df['social_values'] = df.apply(lambda s : _adapt_social_values(s.name), axis=1)
 
